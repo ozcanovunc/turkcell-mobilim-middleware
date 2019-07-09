@@ -1,6 +1,16 @@
-var responseXML = `<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Header><ActivityId CorrelationId="30b3be37-4389-42ee-b02c-5ef433c99c90" xmlns="http://schemas.microsoft.com/2004/09/ServiceModel/Diagnostics">3f9fb6d7-06d7-49b4-a54e-c85e513712b6</ActivityId></s:Header><s:Body><SmileFaceResponse xmlns="http://tempuri.org/"><SmileFaceResult xmlns:a="http://schemas.datacontract.org/2004/07/NetflowServices" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><a:AgentEntityCollection/><a:CalculatedOtelPrice/><a:CityCountryEntityCollection/><a:CodeEntityCollection/><a:ErrorCode i:nil="true"/><a:ErrorMessage/><a:HasError>false</a:HasError><a:KonaklamaEntityCollection/><a:OtelBasicEntityCollection/><a:OtelEntityCollection/><a:TripDetailsERP/><a:TripInfo><a:AffectedPoint>79</a:AffectedPoint><a:MessageContent>Yurt dışı seyahatinden &lt;b&gt;30+ gün&lt;/b&gt; önce rezervasyon yaptığın için %79 avantajli fiyattan alım yapılmasını sağladın. Bu sayede şirketimizin seyahat giderlerinin azaltılmasına katkı sağlamış oldun.</a:MessageContent><a:MessageHeader>Tebrikler!</a:MessageHeader><a:MessageType>VG</a:MessageType></a:TripInfo></SmileFaceResult></SmileFaceResponse></s:Body></s:Envelope>`;
+const PORT = 8080;
+const app = require("express")();
+const pickEndpoints = require("./lib/pickEndpoints");
+const endpoints = require("./endpoints");
 
-var { soapToRest } = require("./lib/translator");
+app.get('/', function(req, res) {
+   res
+      .status(200)
+      .send('<title>Turkcell</title>' +
+         '<center><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSAxCVXwC-y6LSdUTcxZZkL1Mvxo_cDpDMv_U_fMbiDdce9D2A" ></img> ' +
+         '<h1>Turkcell Poc Middleware is up and running...</h1> <p>' + req.headers.cookie + '</p></center>').end();
+});
 
-var a = soapToRest(responseXML);
-debugger;
+app.listen(PORT, () => console.log(`Turkcell Poc Middleware listening on port ${PORT}!`));
+
+pickEndpoints(app, endpoints);

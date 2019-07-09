@@ -10,5 +10,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ozcan Ovunc",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "easy-soap-request": "^2.6.0",
+    "express": "^4.17.1",
+    "fast-xml-parser": "^3.12.16"
+  }
 }
