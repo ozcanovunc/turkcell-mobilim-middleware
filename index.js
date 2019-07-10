@@ -1,4 +1,4 @@
-const PORT = 8080;
+const PORT = 80;
 const app = require("express")();
 const pickEndpoints = require("./lib/pickEndpoints");
 const endpoints = require("./endpoints");
