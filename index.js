@@ -1,7 +1,11 @@
 const PORT = 80;
-const app = require("express")();
+const express = require("express");
+const bodyParser = require("body-parser");
+const app = express();
 const pickEndpoints = require("./lib/pickEndpoints");
 const endpoints = require("./endpoints");
+
+app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
    res
