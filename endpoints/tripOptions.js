@@ -1,4 +1,5 @@
 const request = require("../lib/request");
+const getEntities = require("../lib/getEntities");
 const genericErrorHandler = require("../lib/genericErrorHandler");
 
 module.exports = function(service) {
@@ -10,8 +11,8 @@ module.exports = function(service) {
             .then(e => {
                 let types = e[0];
                 let purposes = e[1];
-                types = Object.values(types.CodeEntityCollection.CodeEntity);
-                purposes = Object.values(purposes.CodeEntityCollection.CodeEntity);
+                types = getEntities(types, "CodeEntity");
+                purposes = getEntities(purposes, "CodeEntity");
                 res.status(200).json({ types, purposes }).end();
             })
             .catch(e => genericErrorHandler(e, res));
