@@ -1,19 +1,6 @@
 const request = require("../lib/request");
 const genericErrorHandler = require("../lib/genericErrorHandler");
 
-/*
-Returns:
-{
-    "types": [{
-        "Code": "YURTICI",
-        "Description": "Yurt İçi"
-    }],
-    "purposes": [{
-        "Code": "SEMINER",
-        "Description": "Seminer - Konferans"
-    }]
-}
-*/
 module.exports = function(service) {
     service.get('/mobile/tripOptions/', function(req, res) {
         Promise.all([
