@@ -12,9 +12,9 @@ app.get('/', function(req, res) {
       .status(GENERIC_SUCCESS_CODE)
       .send('<title>Turkcell</title>' +
          '<center><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSAxCVXwC-y6LSdUTcxZZkL1Mvxo_cDpDMv_U_fMbiDdce9D2A" ></img> ' +
-         '<h1 style="font-family:sans-serif;">Turkcell Mobilim Middleware is up and running...</h1></center>').end();
+         '<h1 style="font-family:sans-serif;">Mobilim Middleware is up and running...</h1></center>').end();
 });
 
-app.listen(PORT, () => console.log(`Turkcell Mobilim Middleware listening on port ${PORT}!`));
+app.listen(PORT, () => console.log(`Mobilim Middleware listening on port ${PORT}!`));
 
 pickEndpoints(app, endpoints);

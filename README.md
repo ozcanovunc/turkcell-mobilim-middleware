@@ -1,4 +1,6 @@
-# turkcell-poc-middleware
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSAxCVXwC-y6LSdUTcxZZkL1Mvxo_cDpDMv_U_fMbiDdce9D2A" width="100">
+
+# turkcell-mobilim-middleware
 
 ## Installation
 
@@ -31,4 +33,4 @@ localhost:80
 ```
 - See the screen down below
 
-<img src="resources/main.png" width="300">
+<img src="resources/main.png" width="400">
