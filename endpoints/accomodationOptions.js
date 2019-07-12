@@ -1,9 +1,12 @@
 const request = require("../lib/request");
 const getEntities = require("../lib/getEntities");
 const genericErrorHandler = require("../lib/genericErrorHandler");
+const { CACHE_DURATION } = require("../lib/constants");
+const apicache = require("apicache");
+var cache = apicache.middleware;
 
 module.exports = function(service) {
-    service.get('/mobile/accomodationOptions/', function(req, res) {
+    service.get('/mobile/accomodationOptions/', cache(CACHE_DURATION), function(req, res) {
         Promise.all([
                 request("KonaklamaList", { listType: "ST_ODATIPI" }),
                 request("KonaklamaList", { listType: "ST_KONAKLAMATIPI" }),

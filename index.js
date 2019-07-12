@@ -1,9 +1,12 @@
 const express = require("express");
+const apicache = require("apicache");
 const bodyParser = require("body-parser");
 const app = express();
 const pickEndpoints = require("./lib/pickEndpoints");
 const endpoints = require("./endpoints");
-const { PORT, GENERIC_SUCCESS_CODE } = require("./lib/constants");
+const { PORT, GENERIC_SUCCESS_CODE, CACHE_OPTIONS } = require("./lib/constants");
+
+apicache.options(CACHE_OPTIONS); // Set global caching options
 
 app.use(bodyParser.json());
 

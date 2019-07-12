@@ -1,9 +1,12 @@
 const request = require("../lib/request");
 const getEntities = require("../lib/getEntities");
 const genericErrorHandler = require("../lib/genericErrorHandler");
+const { CACHE_DURATION } = require("../lib/constants");
+const apicache = require("apicache");
+var cache = apicache.middleware;
 
 module.exports = function(service) {
-    service.get('/mobile/autocompleteCity/:searchText', function(req, res) {
+    service.get('/mobile/autocompleteCity/:searchText', cache(CACHE_DURATION), function(req, res) {
         const { searchText } = req.params;
         request("FromToCollection", { fromTo: searchText })
             .then(e => {

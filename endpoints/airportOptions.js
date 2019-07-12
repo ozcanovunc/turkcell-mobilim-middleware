@@ -1,9 +1,12 @@
 const request = require("../lib/request");
 const getEntities = require("../lib/getEntities");
 const genericErrorHandler = require("../lib/genericErrorHandler");
+const { CACHE_DURATION } = require("../lib/constants");
+const apicache = require("apicache");
+var cache = apicache.middleware;
 
 module.exports = function(service) {
-    service.get('/mobile/airportOptions/:from/:to', function(req, res) {
+    service.get('/mobile/airportOptions/:from/:to', cache(CACHE_DURATION), function(req, res) {
         const { from, to } = req.params;
 
         Promise.all([
