@@ -13,6 +13,7 @@
   "author": "Ozcan Ovunc",
   "license": "ISC",
   "dependencies": {
+    "@elastic/elasticsearch": "^7.2.0",
     "apicache": "^1.4.0",
     "body-parser": "^1.19.0",
     "easy-soap-request": "^2.6.0",
