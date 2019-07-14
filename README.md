@@ -2,35 +2,20 @@
 
 # turkcell-mobilim-middleware
 
+## Prerequisites
+- Docker (>=18.09.2)
+
 ## Installation
-
-#### With Docker
-
-- Install Docker
-- Run the following commands
-
+- Run the following command which will run the latest 
+  - Elasticsearch (=7.2.0) 
+  - Kibana (=7.2.0) Docker images
 ```
-docker build . -t turkcell/middleware
-docker run -p 80:80 turkcell/middleware
+docker-compose up
 ```
-
-#### Without Docker
-
-- Install node v10
-- Run the following commands
-
-```
-npm i
-npm run start
-```
-
-## Usage
-
-- Go to the following link through your browser
-
-```
-localhost:80
-```
-- See the screen down below
+- After both images are up and running go to the following links through your browser to make sure everything is working correctly
+- Eleasticsearch is hosted at ```http://localhost:9200```
+- Kibana is hosted at ```http://localhost:5601```
+- Middleware is hosted at ```http://localhost:80```
+  - If you navigate there you should be able to see the screen down below
 
 <img src="resources/main.png" width="400">
