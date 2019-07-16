@@ -1,14 +1,11 @@
 const awardRequest = require("../lib/request").awardRequest;
 const genericErrorHandler = require("../lib/genericErrorHandler");
-const { CACHE_DURATION } = require("../lib/constants");
 const errorMessages = require("../lib/errorMessages");
 const {
     getUser,
     getAllUsers,
     updateUser
 } = require("../lib/db");
-const apicache = require("apicache");
-var cache = apicache.middleware;
 
 module.exports = function(service) {
     service.post('/web/award/addFunds', function(req, res) {
@@ -22,7 +19,7 @@ module.exports = function(service) {
             .catch(e => genericErrorHandler(e, res));
     });
 
-    service.get('/web/award/users', cache(CACHE_DURATION), function(req, res) {
+    service.get('/web/award/users', function(req, res) {
         getAllUsers()
             .then(users => res.status(200).json(users).end())
             .catch(e => genericErrorHandler(e, res));
