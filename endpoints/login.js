@@ -12,4 +12,8 @@ module.exports = function(service) {
             })
             .catch(e => genericErrorHandler(e, res));
     });
+
+    service.post('/web/login', function(req, res) {
+        res.status(200).json({}).end();
+    });
 };
