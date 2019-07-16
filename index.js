@@ -6,6 +6,7 @@ const pickEndpoints = require("./lib/pickEndpoints");
 const endpoints = require("./endpoints");
 const logger = require("./middleware/logger");
 const { PORT, GENERIC_SUCCESS_CODE, CACHE_OPTIONS } = require("./lib/constants");
+const log = require("./lib/log");
 
 apicache.options(CACHE_OPTIONS); // Set global caching options
 
@@ -23,3 +24,14 @@ app.get('/', function(req, res) {
 app.listen(PORT, () => console.log(`Mobilim Middleware listening on port ${PORT}!`));
 
 pickEndpoints(app, endpoints);
+
+process.on('uncaughtException', unhandledError);
+process.on('unhandledRejection', unhandledError);
+
+function unhandledError(e) {
+   log({
+      index: "middleware",
+      type: "error",
+      message: e.toString()
+   });
+}
