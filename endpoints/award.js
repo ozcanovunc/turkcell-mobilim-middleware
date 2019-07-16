@@ -12,7 +12,10 @@ var cache = apicache.middleware;
 
 module.exports = function(service) {
     service.post('/web/award/addFunds', function(req, res) {
-        const { userID, funds } = req.body;
+        var { userID, funds } = req.body;
+        funds = parseInt(funds, 10);
+        if (isNaN(funds))
+            return genericErrorHandler(errorMessages.ILLEGAL_FUNDS, res);
         getUser(userID)
             .then(user => updateUser(userID, "funds", user.funds + funds))
             .then(() => res.status(200).json({}).end())
