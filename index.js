@@ -7,11 +7,13 @@ const endpoints = require("./endpoints");
 const logger = require("./middleware/logger");
 const { PORT, GENERIC_SUCCESS_CODE, CACHE_OPTIONS } = require("./lib/constants");
 const log = require("./lib/log");
+const cors = require("cors");
 
 apicache.options(CACHE_OPTIONS); // Set global caching options
 
 app.use(bodyParser.json());
 app.use(logger());
+app.use(cors());
 
 app.get('/', function(req, res) {
    res
