@@ -1,4 +1,4 @@
-curl --request GET localhost:80/mobile/autocompleteCity/kars
+curl --request GET localhost:80/mobile/autocompleteCity/true/kars
 
 # Returns:
 # [{
@@ -10,13 +10,4 @@ curl --request GET localhost:80/mobile/autocompleteCity/kars
 #     "CountryID": 190,
 #     "DefaultAirport": 0,
 #     "ID": 26
-# }, {
-#     "AirPortName_Turkish": "",
-#     "AirportName_English": "",
-#     "City": "Oskarshamn",
-#     "CityID": 2104,
-#     "Country": "İSVEÇ",
-#     "CountryID": 83,
-#     "DefaultAirport": 0,
-#     "ID": 479
 # }]
