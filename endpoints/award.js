@@ -54,7 +54,7 @@ module.exports = function(service) {
             .then(() => {
                 // Update received awards
                 userTo.receivedAwards.push(awardID);
-                return updateUser(userIDTo, "givenAwards", userTo.receivedAwards.join(","));
+                return updateUser(userIDTo, "receivedAwards", userTo.receivedAwards.join(","));
             })
             .then(() => res.status(200).json({}).end())
             .catch(e => genericErrorHandler(e, res));
