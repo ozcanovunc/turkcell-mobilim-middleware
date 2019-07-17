@@ -2,6 +2,22 @@
 
 # turkcell-mobilim-middleware
 
+[![Quality Gate Status](http://localhost:9000/api/project_badges/measure?project=middleware&metric=alert_status)](http://localhost:9000/dashboard?id=middleware)
+
+Middleware implemented for **Turkcell Mobilim App** POC
+
+## Features
+
+- Communicates with 
+  - Turkcell backends (travel and award related flows)
+  - [PostgreSQL](https://www.postgresql.org/) DB
+  - [Elasticsearch](https://www.elastic.co/) server
+
+- Includes
+  - SOAP to REST translator (and vice versa)
+  - [Caching](https://github.com/kwhitley/apicache) for certain endpoints
+  - Logging mechanism for all requests & responses
+
 ## Prerequisites
 - Docker (>=18.09.2)
 
@@ -19,3 +35,9 @@ docker-compose up
   - If you navigate there you should be able to see the screen down below
 
 <img src="resources/main.png" width="400">
+
+## Notes
+
+- [SonarScanner](https://www.sonarqube.org/) report can be found down below 
+
+<img src="resources/sonarreport.png" width="400">
