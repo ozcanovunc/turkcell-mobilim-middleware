@@ -2,7 +2,7 @@
 
 # turkcell-mobilim-middleware
 
-[![Quality Gate Status](http://localhost:9000/api/project_badges/measure?project=middleware&metric=alert_status)](http://localhost:9000/dashboard?id=middleware)
+![Quality Gate Status](https://img.shields.io/badge/quality%20gate-passed-green.svg)
 
 Middleware implemented for **Turkcell Mobilim App** POC
 
