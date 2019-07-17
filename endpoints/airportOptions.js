@@ -14,11 +14,11 @@ module.exports = function(service) {
                 request("GetFliedFrom", { fliedFrom: to })
             ])
             .then(e => {
-                let from = e[0];
-                let to = e[1];
-                from = getEntities(from, "CityCountryEntity");
-                to = getEntities(to, "CityCountryEntity");
-                res.status(200).json({ from, to }).end();
+                let airportsFrom = e[0];
+                let airportsTo = e[1];
+                airportsFrom = getEntities(airportsFrom, "CityCountryEntity");
+                airportsTo = getEntities(airportsTo, "CityCountryEntity");
+                res.status(200).json({ from: airportsFrom, to: airportsTo }).end();
             })
             .catch(e => genericErrorHandler(e, res));
     });
